@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Device\Device;
+use App\Observers\DeviceObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -29,6 +31,9 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        /**
+         * Project Model Observer Initialized
+         */
+        Device::observe(DeviceObserver::class);
     }
 }

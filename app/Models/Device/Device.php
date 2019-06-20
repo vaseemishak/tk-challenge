@@ -23,7 +23,7 @@ class Device extends Model
      * @var array
      */
     protected $fillable = [
-        'device_uuid', 'access_token', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version', 'is_premium'
+        'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version'
     ];
 
     /**
@@ -50,5 +50,23 @@ class Device extends Model
     public function favorites()
     {
         return $this->hasMany(Favorite::class, 'device_id', 'id');
+    }
+
+    /**
+     * @param $deviceToken
+     * @return Device
+     */
+    public static function findByDeviceToken($deviceToken)
+    {
+        return self::where('device_uuid', $deviceToken)->first();
+    }
+
+    /**
+     * @param $accessToken
+     * @return Device
+     */
+    public static function findByAccessToken($accessToken)
+    {
+        return self::where('access_token', $accessToken)->first();
     }
 }

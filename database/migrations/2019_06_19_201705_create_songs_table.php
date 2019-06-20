@@ -15,12 +15,16 @@ class CreateSongsTable extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id')->unsigned();
             $table->string('thumbnail', 250)->nullable();
             $table->string('media')->nullable(); // media source path or url
 
             // Dates
             $table->softDeletes();
             $table->timestamps();
+
+            // Relations
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
 
         Schema::create('song_translations', function (Blueprint $table) {

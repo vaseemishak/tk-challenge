@@ -21,6 +21,10 @@ class CreateFavoritesTable extends Migration
             // Dates
             $table->softDeletes();
             $table->timestamps();
+
+            // Relations
+            $table->foreign('device_id')->references('id')->on('devices')->onDelete('cascade');
+            $table->foreign('song_id')->references('id')->on('songs')->onDelete('cascade');
         });
     }
 

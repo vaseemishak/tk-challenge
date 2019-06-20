@@ -17,7 +17,7 @@ class CreateDevicesTable extends Migration
             $table->increments('id');
 
             // Device Information
-            $table->string('device_token',250)->unique()->index('device_token'); // Unique device token
+            $table->string('device_uuid',250)->unique()->index('device_uuid'); // Unique device token
             $table->string('access_token', 32)->nullable();
             $table->string('language_code', 10)->nullable(); // Ex: tr_TR, en_US
             $table->string('region_code', 10)->nullable(); // Ex: TR, US

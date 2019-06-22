@@ -26,16 +26,25 @@ class AuthApi
                 config()->set('app.locale', $device->language);
                 config()->set('translatable.locale', $device->language);
             } else {
-
-                return response()->json([
-                    'status' => 401,
-                    'error'  => 'Unauthorized',
-                    'data'   => null
-                ], 401);
+                return $this->unauthorized();
             }
 
+        } else {
+            return $this->unauthorized();
         }
 
         return $next($request);
+    }
+
+    public function unauthorized()
+    {
+        return response()->json([
+            'message' => "Unauthorized",
+            'status'  => 401,
+            'data'    => null,
+            'errors'  => [
+                'Authorization: Bearer is required'
+            ],
+        ], 401, []);
     }
 }

@@ -26,6 +26,12 @@
 ###### **Döküman**
 https://documenter.getpostman.com/view/6358839/S1a1b9WJ
 
+Postman Collection -> TK-Challange.postman_collection.json
+
+Swagger YAML -> Tk-Challange.swagger.yaml
+
+Swagger UI -> http://localhost/swagger
+
 ###### **Araçlar**
 `Telescope: http://localhost/telescope`
 

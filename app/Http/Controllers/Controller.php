@@ -14,16 +14,17 @@ class Controller extends BaseController
     /**
      * @param $data
      * @param int $status
+     * @param null $message
      * @param array $headers
-     * @param null $error
      * @return \Illuminate\Http\JsonResponse
      */
-    public function response($data, $status = 200, $error = null, $headers = [])
+    public function response($data, $status = 200, $message = null, $headers = [])
     {
         return response()->json([
-            'status' => $status,
-            'error' => $error,
-            'data'    => $data
+            'message' => $message,
+            'status'  => $status,
+            'data'    => $data,
+            'errors'  => null,
         ], $status, $headers);
     }
 

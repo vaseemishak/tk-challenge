@@ -48,6 +48,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        /**
+         * All validate error skeleton response
+         */
         if ($exception instanceof ValidationException)
         {
             return response()->json([
@@ -56,6 +59,21 @@ class Handler extends ExceptionHandler
                 'status' => $exception->status,
                 'errors' => $exception->errors(),
             ], $exception->status);
+        }
+
+        /**
+         * All error skeleton response
+         */
+        if ($exception instanceof Exception && config('app.env') == 'production')
+        {
+            return response()->json([
+                'message' => $exception->getMessage(),
+                'data'   => null,
+                'status' => 500,
+                'errors' => [
+                    __('Server error. For debug switch to development mode')
+                ],
+            ], 500);
         }
 
         return parent::render($request, $exception);

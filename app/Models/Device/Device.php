@@ -23,7 +23,7 @@ class Device extends Model
      * @var array
      */
     protected $fillable = [
-        'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version'
+        'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version', 'access_token'
     ];
 
     /**

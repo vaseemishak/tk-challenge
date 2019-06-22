@@ -12,16 +12,17 @@
 
 ###### **Adım 3**
 
-``
+` docker exec -it --user=www-data tk-challenge_php_1 bash`
 
 ###### **Adım 4**
 
-``
+`composer install`
 
-###### **Adım 5**
 
-``
+**Bilgiler**
 
-###### **Adım 6**
+###### **MYSQL**
 
-``
+`http://localhost:9999 Host: mysql Username: root Password: 123456`
+
+Döküman: https://google.com

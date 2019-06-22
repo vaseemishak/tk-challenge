@@ -17,7 +17,7 @@ class DeviceController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth.api'], ['except' => 'store']);
+        $this->middleware(['auth.api'], ['except' => ['getDeviceAccessToken', 'store']]);
     }
 
     /**
@@ -31,7 +31,13 @@ class DeviceController extends Controller
         event('api.request.device.store.before', $request);
 
         $device = Device::create($request->all([
-            'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version'
+            'device_uuid',
+            'language_code',
+            'region_code',
+            'platform',
+            'notification_token',
+            'notification_tags',
+            'app_version'
         ]));
 
         event('api.request.device.store.after', $device, $request);
@@ -79,7 +85,13 @@ class DeviceController extends Controller
     public function update(Update $request)
     {
         $device = $request->attributes->get('api.user')->update(array_filter($request->all([
-            'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version', 'is_premium'
+            'language_code',
+            'region_code',
+            'platform',
+            'notification_token',
+            'notification_tags',
+            'app_version',
+            'is_premium'
         ])));
 
         if ($device)

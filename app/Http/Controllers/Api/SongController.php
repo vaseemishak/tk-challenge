@@ -34,12 +34,12 @@ class SongController extends Controller
      * Song list with category id
      *
      * @param Request $request
-     * @param $category_id
+     * @param $categoryId
      * @return JsonResponse
      */
-    public function listWithCategory(Request $request, $category_id)
+    public function listWithCategory(Request $request, $categoryId)
     {
-        return $this->response(Song::filterByCategory($category_id)->paginate(10));
+        return $this->response(Song::filterByCategory($categoryId)->paginate(10));
     }
 
 
@@ -47,18 +47,18 @@ class SongController extends Controller
      * Favorite song, current device session
      *
      * @param Request $request
-     * @param $song_id
+     * @param $songId
      * @return JsonResponse
      */
-    public function favorite(Request $request, $song_id)
+    public function favorite(Request $request, $songId)
     {
-        event('device.song.favorite.before', $request, $song_id);
+        event('device.song.favorite.before', $request, $songId);
 
         $userCollection = $request->attributes->get('api.user');
 
         $favoriteCollection = clone $userCollection->favorites();
 
-        $favoriteEntity = $favoriteCollection->findByDeviceIdAndSongId($userCollection->id, $song_id)
+        $favoriteEntity = $favoriteCollection->findByDeviceIdAndSongId($userCollection->id, $songId)
             ->withTrashed()
             ->first();
 
@@ -74,7 +74,7 @@ class SongController extends Controller
             $favoriteEntity = $request->attributes->get('api.user')
                 ->favorites()
                 ->create([
-                    'song_id' => $song_id,
+                    'song_id' => $songId,
                     'device_id' => $request->attributes->get('api.user')->id
                 ]);
 
@@ -89,16 +89,16 @@ class SongController extends Controller
      * Unfavorite song, current device session
      *
      * @param Request $request
-     * @param $song_id
+     * @param $songId
      * @return JsonResponse
      */
-    public function unfavorite(Request $request, $song_id)
+    public function unfavorite(Request $request, $songId)
     {
-        event('device.song.unfavorite.before', $request, $song_id);
+        event('device.song.unfavorite.before', $request, $songId);
 
         $favoriteEntity = $request->attributes->get('api.user')
             ->favorites()
-            ->findByDeviceIdAndSongId($request->attributes->get('api.user')->id, $song_id)
+            ->findByDeviceIdAndSongId($request->attributes->get('api.user')->id, $songId)
             ->first();
 
         /**

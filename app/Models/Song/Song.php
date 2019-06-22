@@ -55,6 +55,13 @@ class Song extends Model
     ];
 
     /**
+     * @var array
+     */
+    protected $appends = [
+        'has_favorite'
+    ];
+
+    /**
      * Table Date Columns
      *
      * @var array
@@ -89,7 +96,7 @@ class Song extends Model
      */
     public function favorites()
     {
-        return $this->hasMany(Favorite::class, 'id', 'song_id');
+        return $this->hasMany(Favorite::class, 'song_id', 'id');
     }
 
     /**
@@ -123,5 +130,15 @@ class Song extends Model
     public function getMediaAttribute($value)
     {
         return url($value);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getHasFavoriteAttribute()
+    {
+        return $this->favorites()
+            ->findByDeviceIdAndSongId(request()->attributes->get('api.user')->id, $this->id)
+            ->first() ? true : false;
     }
 }

@@ -42,8 +42,8 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception $exception
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
@@ -51,11 +51,10 @@ class Handler extends ExceptionHandler
         /**
          * All validate error skeleton response
          */
-        if ($exception instanceof ValidationException)
-        {
+        if ($exception instanceof ValidationException) {
             return response()->json([
                 'message' => $exception->getMessage(),
-                'data'   => null,
+                'data' => null,
                 'status' => $exception->status,
                 'errors' => $exception->errors(),
             ], $exception->status);
@@ -64,11 +63,15 @@ class Handler extends ExceptionHandler
         /**
          * All error skeleton response
          */
-        if ($exception instanceof Exception && config('app.env') == 'production')
-        {
+        if (
+            $request->hasHeader('Accept')
+            && $request->header('Accept') == 'application/json'
+            && $exception instanceof Exception
+            && config()->get('app.env') == 'production'
+        ) {
             return response()->json([
                 'message' => $exception->getMessage(),
-                'data'   => null,
+                'data' => null,
                 'status' => 500,
                 'errors' => [
                     __('Server error. For debug switch to development mode')

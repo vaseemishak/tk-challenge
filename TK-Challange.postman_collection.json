@@ -1,0 +1,1696 @@
+{
+	"info": {
+		"_postman_id": "2cefcf76-917e-4213-8d8f-419d1ce450d5",
+		"name": "TK-Challange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "device_uuid",
+									"value": "deneme-device-uuid",
+									"description": "Device UUID",
+									"type": "text"
+								},
+								{
+									"key": "language_code",
+									"value": "tr",
+									"description": "Device Locale Code/ Ex: tr, en, fr",
+									"type": "text"
+								},
+								{
+									"key": "region_code",
+									"value": "TR",
+									"description": "Device Region Code/ Ex: TR, EN, FR ",
+									"type": "text"
+								},
+								{
+									"key": "platform",
+									"value": "ios",
+									"description": "Platform/ Param: ios, android, other",
+									"type": "text"
+								},
+								{
+									"key": "notification_token",
+									"value": "deneme-onesignal-player-id",
+									"description": "Notification Token/ Ex: onesignal player id",
+									"type": "text"
+								},
+								{
+									"key": "notification_tags",
+									"value": "daily",
+									"description": "Notification Tags/ Ex: daily, weekly, monthly",
+									"type": "text"
+								},
+								{
+									"key": "app_version",
+									"value": "1.0.1",
+									"description": "Current App Version/ Ex: 1.0.1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/device",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"device"
+							]
+						},
+						"description": "Device kayıt endpointi. Device ilk önce servis üzerinden kayıt edilir. Eğer device kayıtlı ise Get Access Token sekmesindeki endpoint çalıştırılarak access token edinilir."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_uuid",
+											"value": "deneme-device-uuid",
+											"description": "Device UUID",
+											"type": "text"
+										},
+										{
+											"key": "language_code",
+											"value": "tr",
+											"description": "Device Locale Code/ Ex: tr, en, fr",
+											"type": "text"
+										},
+										{
+											"key": "region_code",
+											"value": "TR",
+											"description": "Device Region Code/ Ex: TR, EN, FR ",
+											"type": "text"
+										},
+										{
+											"key": "platform",
+											"value": "ios",
+											"description": "Platform/ Param: ios, android, other",
+											"type": "text"
+										},
+										{
+											"key": "notification_token",
+											"value": "deneme-onesignal-player-id",
+											"description": "Notification Token/ Ex: onesignal player id",
+											"type": "text"
+										},
+										{
+											"key": "notification_tags",
+											"value": "daily",
+											"description": "Notification Tags/ Ex: daily, weekly, monthly",
+											"type": "text"
+										},
+										{
+											"key": "app_version",
+											"value": "1.0.1",
+											"description": "Current App Version/ Ex: 1.0.1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/device",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"device"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:34:12 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Device created.\",\n    \"status\": 201,\n    \"data\": {\n        \"device_uuid\": \"deneme-device-uuid\",\n        \"language_code\": \"tr\",\n        \"region_code\": \"TR\",\n        \"platform\": \"ios\",\n        \"notification_tags\": \"daily\",\n        \"app_version\": \"1.0.1\",\n        \"updated_at\": \"2019-06-22 22:34:12\",\n        \"created_at\": \"2019-06-22 22:34:12\",\n        \"id\": 1\n    },\n    \"errors\": null\n}"
+						},
+						{
+							"name": "No Validate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_uuid",
+											"value": "deneme-device-uuid",
+											"description": "Device UUID",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "language_code",
+											"value": "tr",
+											"description": "Device Locale Code/ Ex: tr, en, fr",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "region_code",
+											"value": "TR",
+											"description": "Device Region Code/ Ex: TR, EN, FR ",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "platform",
+											"value": "ios",
+											"description": "Platform/ Param: ios, android, other",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "notification_token",
+											"value": "deneme-onesignal-player-id",
+											"description": "Notification Token/ Ex: onesignal player id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "notification_tags",
+											"value": "daily",
+											"description": "Notification Tags/ Ex: daily, weekly, monthly",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "app_version",
+											"value": "1.0.1",
+											"description": "Current App Version/ Ex: 1.0.1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/device",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"device"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:34:33 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The given data was invalid.\",\n    \"data\": null,\n    \"status\": 422,\n    \"errors\": {\n        \"device_uuid\": [\n            \"The device uuid field is required.\"\n        ],\n        \"language_code\": [\n            \"The language code field is required.\"\n        ],\n        \"platform\": [\n            \"The platform field is required.\"\n        ],\n        \"app_version\": [\n            \"The app version field is required.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Access Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "device_token",
+									"value": "deneme-device-uuid",
+									"description": "Device Unique Token",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/device/get-access-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"device",
+								"get-access-token"
+							]
+						},
+						"description": "Access token her bu fonksiyon çalıştırıldığında yeniden oluşturulur. Bu endpoint uygulama her açıldığında tetiklenerek yeni bir token üretilmesi amacıyla yapılmıştır."
+					},
+					"response": [
+						{
+							"name": "Device ID Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_token",
+											"value": "deneme-device-uuid",
+											"description": "Device Unique Token",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/device/get-access-token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"device",
+										"get-access-token"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:36:42 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Device ID Not Found\",\n    \"status\": 400,\n    \"data\": null,\n    \"errors\": null\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_token",
+											"value": "deneme-device-uuid",
+											"description": "Device Unique Token",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/device/get-access-token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"device",
+										"get-access-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:35:35 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": null,\n    \"status\": 200,\n    \"data\": {\n        \"access_token\": \"2cyRKKil4pA1IBut11BO2xnokihmXAC5\"\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "language_code",
+									"value": "tr",
+									"description": "Device Locale Code/ Ex: tr, en, fr",
+									"type": "text"
+								},
+								{
+									"key": "region_code",
+									"value": "TR",
+									"description": "Device Region Code/ Ex: TR, EN, FR ",
+									"type": "text"
+								},
+								{
+									"key": "platform",
+									"value": "ios",
+									"description": "Platform/ Param: ios, android, other",
+									"type": "text"
+								},
+								{
+									"key": "notification_token",
+									"value": "deneme-onesignal-player-id",
+									"description": "Notification Token/ Ex: onesignal player id",
+									"type": "text"
+								},
+								{
+									"key": "notification_tags",
+									"value": "daily",
+									"description": "Notification Tags/ Ex: daily, weekly, monthly",
+									"type": "text"
+								},
+								{
+									"key": "app_version",
+									"value": "1.0.1",
+									"description": "Current App Version/ Ex: 1.0.1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost//api/device",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"",
+								"api",
+								"device"
+							]
+						},
+						"description": "Device bilgileri güncellemek için oluşturulmuş servis. Güncelleme başarılı olduysa 204 no content responsu döner."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "language_code",
+											"value": "tr",
+											"description": "Device Locale Code/ Ex: tr, en, fr",
+											"type": "text"
+										},
+										{
+											"key": "region_code",
+											"value": "TR",
+											"description": "Device Region Code/ Ex: TR, EN, FR ",
+											"type": "text"
+										},
+										{
+											"key": "platform",
+											"value": "ios",
+											"description": "Platform/ Param: ios, android, other",
+											"type": "text"
+										},
+										{
+											"key": "notification_token",
+											"value": "deneme-onesignal-player-id",
+											"description": "Notification Token/ Ex: onesignal player id",
+											"type": "text"
+										},
+										{
+											"key": "notification_tags",
+											"value": "daily",
+											"description": "Notification Tags/ Ex: daily, weekly, monthly",
+											"type": "text"
+										},
+										{
+											"key": "app_version",
+											"value": "1.0.1",
+											"description": "Current App Version/ Ex: 1.0.1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost//api/device",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"",
+										"api",
+										"device"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:39:05 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "language_code",
+											"value": "tr",
+											"description": "Device Locale Code/ Ex: tr, en, fr",
+											"type": "text"
+										},
+										{
+											"key": "region_code",
+											"value": "TR",
+											"description": "Device Region Code/ Ex: TR, EN, FR ",
+											"type": "text"
+										},
+										{
+											"key": "platform",
+											"value": "ios",
+											"description": "Platform/ Param: ios, android, other",
+											"type": "text"
+										},
+										{
+											"key": "notification_token",
+											"value": "deneme-onesignal-player-id",
+											"description": "Notification Token/ Ex: onesignal player id",
+											"type": "text"
+										},
+										{
+											"key": "notification_tags",
+											"value": "daily",
+											"description": "Notification Tags/ Ex: daily, weekly, monthly",
+											"type": "text"
+										},
+										{
+											"key": "app_version",
+											"value": "1.0.1",
+											"description": "Current App Version/ Ex: 1.0.1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost//api/device",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"",
+										"api",
+										"device"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:39:16 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"status\": 401,\n    \"data\": null,\n    \"errors\": [\n        \"Authorization: Bearer is required\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost//api/device",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"",
+								"api",
+								"device"
+							]
+						},
+						"description": "Gönderilen Bearer token üzerindeki cihazın bilgilerini döner"
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost//api/device",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"",
+										"api",
+										"device"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:39:41 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"status\": 401,\n    \"data\": null,\n    \"errors\": [\n        \"Authorization: Bearer is required\"\n    ]\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost//api/device",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"",
+										"api",
+										"device"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:39:32 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": null,\n    \"status\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"device_uuid\": \"deneme-device-uuid\",\n        \"language_code\": \"tr\",\n        \"region_code\": \"TR\",\n        \"platform\": \"ios\",\n        \"notification_tags\": \"daily\",\n        \"app_version\": \"1.0.1\",\n        \"created_at\": \"2019-06-22 22:34:12\",\n        \"updated_at\": \"2019-06-22 22:35:35\"\n    },\n    \"errors\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Song",
+			"item": [
+				{
+					"name": "Category List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/api/song/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"song",
+								"categories"
+							]
+						},
+						"description": "Uygulamaya ait kategorilerin listesini döner."
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"categories"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:41:40 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"status\": 401,\n    \"data\": null,\n    \"errors\": [\n        \"Authorization: Bearer is required\"\n    ]\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:39:59 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "54"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Song category list\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?31876\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Aliquid ab et.\"\n        },\n        {\n            \"id\": 2,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?72059\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Non facere.\"\n        },\n        {\n            \"id\": 3,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?62620\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Quo minus.\"\n        },\n        {\n            \"id\": 4,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?31485\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Eos eos.\"\n        },\n        {\n            \"id\": 5,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?53636\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Ex et ipsum.\"\n        },\n        {\n            \"id\": 6,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?28956\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Quibusdam non.\"\n        },\n        {\n            \"id\": 7,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?38771\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Cupiditate.\"\n        },\n        {\n            \"id\": 8,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?27653\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Recusandae qui.\"\n        },\n        {\n            \"id\": 9,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?51075\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Vel facere.\"\n        },\n        {\n            \"id\": 10,\n            \"thumbnail\": \"https://lorempixel.com/400/400/?47152\",\n            \"created_at\": \"2019-06-22 22:25:31\",\n            \"updated_at\": \"2019-06-22 22:25:31\",\n            \"name\": \"Dolorum quasi.\"\n        }\n    ],\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Song List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/api/song/category/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"song",
+								"category",
+								"1"
+							]
+						},
+						"description": "Kategorilere ait şarkıları döner"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"category",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:42:15 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": null,\n    \"status\": 200,\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?69200\",\n                \"media\": \"http://localhost/storage/media/song/nlL93BOMUKCxRQv.mp3\",\n                \"created_at\": \"2019-06-22 22:25:31\",\n                \"updated_at\": \"2019-06-22 22:25:31\",\n                \"has_favorite\": false,\n                \"name\": \"Eum velit.\"\n            },\n            {\n                \"id\": 2,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?40530\",\n                \"media\": \"http://localhost/storage/media/song/S2E4SRzAHbDvjQP.mp3\",\n                \"created_at\": \"2019-06-22 22:25:31\",\n                \"updated_at\": \"2019-06-22 22:25:31\",\n                \"has_favorite\": false,\n                \"name\": \"Est nulla.\"\n            },\n            {\n                \"id\": 3,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?26302\",\n                \"media\": \"http://localhost/storage/media/song/ANRoJpkjQPAwHKC.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Quos at.\"\n            },\n            {\n                \"id\": 4,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?24047\",\n                \"media\": \"http://localhost/storage/media/song/ppvCBwCriab6oq3.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Quis et.\"\n            },\n            {\n                \"id\": 5,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?88467\",\n                \"media\": \"http://localhost/storage/media/song/uih1q6271GSjJS9.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Eos quisquam.\"\n            },\n            {\n                \"id\": 6,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?81713\",\n                \"media\": \"http://localhost/storage/media/song/RKkTcVMQFCFh8rM.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Nostrum labore.\"\n            },\n            {\n                \"id\": 7,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?61448\",\n                \"media\": \"http://localhost/storage/media/song/iLvf13zcusE2nTE.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Ea.\"\n            },\n            {\n                \"id\": 8,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?79603\",\n                \"media\": \"http://localhost/storage/media/song/l2ePucNerUvSTmP.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Natus.\"\n            },\n            {\n                \"id\": 9,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?23213\",\n                \"media\": \"http://localhost/storage/media/song/v9W0rBO349e7Z9y.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Vel fugit.\"\n            },\n            {\n                \"id\": 10,\n                \"category_id\": 1,\n                \"thumbnail\": \"https://lorempixel.com/400/400/?43181\",\n                \"media\": \"http://localhost/storage/media/song/2WlFILcC1zoaBS7.mp3\",\n                \"created_at\": \"2019-06-22 22:25:32\",\n                \"updated_at\": \"2019-06-22 22:25:32\",\n                \"has_favorite\": false,\n                \"name\": \"Rerum.\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost/api/song/category/1?page=1\",\n        \"from\": 1,\n        \"last_page\": 2,\n        \"last_page_url\": \"http://localhost/api/song/category/1?page=2\",\n        \"next_page_url\": \"http://localhost/api/song/category/1?page=2\",\n        \"path\": \"http://localhost/api/song/category/1\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 10,\n        \"total\": 15\n    },\n    \"errors\": null\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"category",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:42:40 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"status\": 401,\n    \"data\": null,\n    \"errors\": [\n        \"Authorization: Bearer is required\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Song Favorite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/api/song/1/favorite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"song",
+								"1",
+								"favorite"
+							]
+						},
+						"description": "Şarkıyı favorilere ekler."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/1/favorite",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"1",
+										"favorite"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:43:44 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Song favorite created\",\n    \"status\": 201,\n    \"data\": {\n        \"song_id\": \"1\",\n        \"device_id\": 1,\n        \"updated_at\": \"2019-06-22 22:43:44\",\n        \"created_at\": \"2019-06-22 22:43:44\",\n        \"id\": 1\n    },\n    \"errors\": null\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/1/favorite",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"1",
+										"favorite"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:44:02 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"status\": 401,\n    \"data\": null,\n    \"errors\": [\n        \"Authorization: Bearer is required\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Song Unfavorite",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/api/song/1/unfavorite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"song",
+								"1",
+								"unfavorite"
+							]
+						},
+						"description": "Şarkıyı favorilerden kaldırır. Eğer sonuç başarılıysa 204 no-content gönderir."
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/1/unfavorite",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"1",
+										"unfavorite"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:46:15 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"status\": 401,\n    \"data\": null,\n    \"errors\": [\n        \"Authorization: Bearer is required\"\n    ]\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/song/1/unfavorite",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"song",
+										"1",
+										"unfavorite"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2019 22:45:13 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "2cyRKKil4pA1IBut11BO2xnokihmXAC5",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4ac2c902-e238-4624-994c-43543b3c848f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "608ace72-97e2-41a6-b77b-4f87b5ae90ae",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

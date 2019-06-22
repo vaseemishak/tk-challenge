@@ -23,8 +23,8 @@ class AuthApi
             if ($device && !is_null($device))
             {
                 $request->attributes->add(["api.user" => $device]);
-                config()->set('app.locale', $device->language);
-                config()->set('translatable.locale', $device->language);
+                config()->set('app.locale', $device->language_code);
+                config()->set('translatable.locale', $device->language_code);
             } else {
                 return $this->unauthorized();
             }

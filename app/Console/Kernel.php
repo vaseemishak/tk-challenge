@@ -24,8 +24,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // Every hour removes model caches
+        $schedule->command('modelCache')->hourly();
+
+        // Every thirty minutes remove application caches
+        $schedule->command('cache:clear')->hourly()->at(30);
     }
 
     /**

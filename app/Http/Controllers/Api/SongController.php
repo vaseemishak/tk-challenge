@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Song\Category;
 use App\Models\Song\Song;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,7 +23,7 @@ class SongController extends Controller
      * Category List
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function categories(Request $request)
     {
@@ -34,7 +35,7 @@ class SongController extends Controller
      *
      * @param Request $request
      * @param $category_id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function listWithCategory(Request $request, $category_id)
     {
@@ -47,22 +48,41 @@ class SongController extends Controller
      *
      * @param Request $request
      * @param $song_id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function favorite(Request $request, $song_id)
     {
         event('device.song.favorite.before', $request, $song_id);
 
-        $data = $request->attributes->get('api.user')
-            ->favorite()
-            ->create([
-                'song_id' => $song_id,
-                'device_id' => $request->attributes->get('api.user')->id
-            ]);
+        $userCollection = $request->attributes->get('api.user');
 
-        event('device.song.favorite.after', $request, $data);
+        $favoriteCollection = clone $userCollection->favorites();
 
-        return $this->response($data, 201, __('Song favorite created'));
+        $favoriteEntity = $favoriteCollection->findByDeviceIdAndSongId($userCollection->id, $song_id)
+            ->withTrashed()
+            ->first();
+
+        /**
+         * If Has $favoriteEntity restore
+         */
+        if ($favoriteEntity) {
+
+            $favoriteEntity->restore();
+
+        } else {
+
+            $favoriteEntity = $request->attributes->get('api.user')
+                ->favorites()
+                ->create([
+                    'song_id' => $song_id,
+                    'device_id' => $request->attributes->get('api.user')->id
+                ]);
+
+        }
+
+        event('device.song.favorite.after', $request, $favoriteEntity);
+
+        return $this->response($favoriteEntity, 201, __('Song favorite created'));
     }
 
     /**
@@ -70,19 +90,27 @@ class SongController extends Controller
      *
      * @param Request $request
      * @param $song_id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function unfavorite(Request $request, $song_id)
     {
         event('device.song.unfavorite.before', $request, $song_id);
 
-        $data = $request->attributes->get('api.user')
-            ->favorite()
-            ->findByDeviceAndSongId($request->attributes->get('api.user')->id, $song_id)
-            ->delete();
+        $favoriteEntity = $request->attributes->get('api.user')
+            ->favorites()
+            ->findByDeviceIdAndSongId($request->attributes->get('api.user')->id, $song_id)
+            ->first();
 
-        event('device.song.unfavorite.after', $request, $data);
+        /**
+         * If has $favoriteEntity soft delete
+         */
+        if ($favoriteEntity)
+        {
+            $favoriteEntity->delete();
+        }
 
-        return $this->response($data, 204, __('Song favorite deleted'));
+        event('device.song.unfavorite.after', $request, $favoriteEntity);
+
+        return $this->response($favoriteEntity, 204, __('Song favorite deleted'));
     }
 }

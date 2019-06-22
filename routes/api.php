@@ -30,6 +30,6 @@ Route::group(["middleware" => ["api"], "namespace" => 'Api', "as" => 'api.'], fu
      */
     Route::get('/song/categories', 'SongController@categories')->name('song.categories');
     Route::get('/song/category/{category_id}', 'SongController@listWithCategory')->name('song.list.category');
-    Route::get('/song/{song_id}/favorite', 'SongController@favorite')->name('song.favorite');
-    Route::get('/song/{song_id}/unfavorite', 'SongController@unfavorite')->name('song.unfavorite');
+    Route::post('/song/{song_id}/favorite', 'SongController@favorite')->name('song.favorite');
+    Route::delete('/song/{song_id}/unfavorite', 'SongController@unfavorite')->name('song.unfavorite');
 });

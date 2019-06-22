@@ -47,7 +47,8 @@ class Category extends Model
      * @var array
      */
     protected $hidden = [
-        'translations', 'deleted_at'
+        'translations',
+        'deleted_at'
     ];
 
     /**
@@ -55,7 +56,9 @@ class Category extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at'
+    ];
 
     /**
      * Cache Config
@@ -69,7 +72,9 @@ class Category extends Model
      *
      * @var array
      */
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = [
+        'name'
+    ];
 
     /**
      * Translate Model

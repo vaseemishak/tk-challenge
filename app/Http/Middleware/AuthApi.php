@@ -39,11 +39,11 @@ class AuthApi
     public function unauthorized()
     {
         return response()->json([
-            'message' => "Unauthorized",
+            'message' => __('Unauthorized'),
             'status'  => 401,
             'data'    => null,
             'errors'  => [
-                'Authorization: Bearer is required'
+                __('Authorization: Bearer is required')
             ],
         ], 401, []);
     }

@@ -6,6 +6,7 @@ use App\Models\Song\Song;
 use Carbon\Carbon;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -36,7 +37,8 @@ class Favorite extends Model
      * @var array
      */
     protected $fillable = [
-        'device_id', 'song_id'
+        'device_id',
+        'song_id'
     ];
 
     /**
@@ -44,7 +46,9 @@ class Favorite extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at'
+    ];
 
     /**
      * Hidden Objects
@@ -65,7 +69,7 @@ class Favorite extends Model
     /**
      * Song Relation
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
     public function song()
     {
@@ -75,7 +79,7 @@ class Favorite extends Model
     /**
      * Device Relation
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
     public function device()
     {

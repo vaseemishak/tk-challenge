@@ -39,7 +39,15 @@ class Device extends Model
      * @var array
      */
     protected $fillable = [
-        'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version', 'access_token', 'is_premium'
+        'device_uuid',
+        'language_code',
+        'region_code',
+        'platform',
+        'notification_token',
+        'notification_tags',
+        'app_version',
+        'access_token',
+        'is_premium'
     ];
 
     /**
@@ -48,7 +56,10 @@ class Device extends Model
      * @var array
      */
     protected $hidden = [
-        'access_token', 'notification_token', 'is_premium', 'deleted_at'
+        'access_token',
+        'notification_token',
+        'is_premium',
+        'deleted_at'
     ];
 
     /**
@@ -56,7 +67,9 @@ class Device extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at'
+    ];
 
     /**
      * Device Relation

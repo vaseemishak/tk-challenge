@@ -7,7 +7,10 @@ use App\Models\Song\Translate\Song as Translate;
 use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -42,7 +45,9 @@ class Song extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id', 'thumbnail', 'media'
+        'category_id',
+        'thumbnail',
+        'media'
     ];
 
     /**
@@ -51,7 +56,8 @@ class Song extends Model
      * @var array
      */
     protected $hidden = [
-        'translations', 'deleted_at'
+        'translations',
+        'deleted_at'
     ];
 
     /**
@@ -68,7 +74,9 @@ class Song extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at'
+    ];
 
     /**
      * Cache Config
@@ -82,7 +90,9 @@ class Song extends Model
      *
      * @var array
      */
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = [
+        'name'
+    ];
 
     /**
      * Translate Model
@@ -94,7 +104,7 @@ class Song extends Model
     /**
      * Favorite Relation
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function favorites()
     {
@@ -104,7 +114,7 @@ class Song extends Model
     /**
      * Category Relation
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
     public function category()
     {
@@ -127,7 +137,7 @@ class Song extends Model
      * Media attribute add prefix url
      *
      * @param $value
-     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     * @return UrlGenerator|string
      */
     public function getMediaAttribute($value)
     {

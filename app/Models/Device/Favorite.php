@@ -3,10 +3,22 @@
 namespace App\Models\Device;
 
 use App\Models\Song\Song;
+use Carbon\Carbon;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Favorite
+ * @package App\Models\Device
+ *
+ * @property integer id
+ * @property integer device_id
+ * @property integer song_id
+ * @property Carbon deleted_at
+ * @property Carbon updated_at
+ * @property Carbon created_at
+ */
 class Favorite extends Model
 {
     use Cachable, SoftDeletes;
@@ -59,5 +71,18 @@ class Favorite extends Model
     public function device()
     {
         return $this->hasOne(Device::class, 'device_id', 'id');
+    }
+
+    /**
+     * Filter by Device ID and Song ID
+     *
+     * @param $query
+     * @param $device_id
+     * @param $song_id
+     * @return Favorite
+     */
+    public function scopeFindByDeviceIdAndSongId($query, $device_id, $song_id)
+    {
+        return $query->where('device_id', $device_id)->where('song_id', $song_id);
     }
 }

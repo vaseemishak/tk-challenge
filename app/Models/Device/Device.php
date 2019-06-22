@@ -2,10 +2,26 @@
 
 namespace App\Models\Device;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property integer id
+ * @property string device_uuid
+ * @property string language_code
+ * @property string region_code
+ * @property string platform
+ * @property string notification_token
+ * @property string notification_tags
+ * @property string app_version
+ * @property string access_token
+ * @property boolean is_premium
+ * @property Carbon deleted_at
+ * @property Carbon created_at
+ * @property Carbon updated_at
+ */
 class Device extends Model
 {
     use SoftDeletes;
@@ -23,7 +39,7 @@ class Device extends Model
      * @var array
      */
     protected $fillable = [
-        'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version', 'access_token'
+        'device_uuid', 'language_code', 'region_code', 'platform', 'notification_token', 'notification_tags', 'app_version', 'access_token', 'is_premium'
     ];
 
     /**

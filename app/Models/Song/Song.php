@@ -55,6 +55,8 @@ class Song extends Model
     ];
 
     /**
+     * Append custom attributes
+     *
      * @var array
      */
     protected $appends = [
@@ -133,6 +135,8 @@ class Song extends Model
     }
 
     /**
+     * Current device session song favorite status
+     *
      * @return bool
      */
     public function getHasFavoriteAttribute()

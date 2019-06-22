@@ -47,7 +47,7 @@ class Category extends Model
      * @var array
      */
     protected $hidden = [
-        'translations'
+        'translations', 'deleted_at'
     ];
 
     /**

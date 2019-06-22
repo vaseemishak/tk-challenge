@@ -48,7 +48,7 @@ class Device extends Model
      * @var array
      */
     protected $hidden = [
-        'access_token', 'notification_token', 'is_premium'
+        'access_token', 'notification_token', 'is_premium', 'deleted_at'
     ];
 
     /**

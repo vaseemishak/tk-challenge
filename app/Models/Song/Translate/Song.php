@@ -24,6 +24,15 @@ class Song extends Model
     protected $fillable = ['name'];
 
     /**
+     * Hidden Objects
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
+    ];
+
+    /**
      * Timestamp Config
      *
      * @var bool

@@ -47,6 +47,15 @@ class Favorite extends Model
     protected $dates = ['deleted_at'];
 
     /**
+     * Hidden Objects
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
+    ];
+
+    /**
      * Cache Config
      *
      * @var bool

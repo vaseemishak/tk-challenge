@@ -24,4 +24,10 @@
 `http://localhost:9999 Host: mysql Username: root Password: 123456`
 
 ###### **Döküman**
-https://google.com
+https://documenter.getpostman.com/view/6358839/S1a1b9WJ
+
+###### **Araçlar**
+`Telescope: http://localhost/telescope`
+
+###### **Notlar**
+Uygulamanın debug edilebilmesi ve telescope kullanılabilimesi için .env dosyasında APP_ENV=local olarak değiştirilmeli. Ayırca APP_DEBUG=true olarak değiştirilmelidir.

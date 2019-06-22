@@ -19,6 +19,17 @@ Route::group(["middleware" => ["api"], "namespace" => 'Api', "as" => 'api.'], fu
     /**
      * Device Routes
      */
-    Route::apiResource('device', 'DeviceController')->only(['store', 'show', 'update']);
+    Route::post('/device', 'DeviceController@store')->name('device.store');
+    Route::post('/device/get-access-token', 'DeviceController@getDeviceAccessToken')->name('device.get-access-token');
+    Route::get('/device', 'DeviceController@show')->name('device.show');
+    Route::patch('/device', 'DeviceController@update')->name('device.update');
 
+
+    /**
+     * Song Routes
+     */
+    Route::get('/song/categories', 'SongController@categories')->name('song.categories');
+    Route::get('/song/category/{category_id}', 'SongController@listWithCategory')->name('song.list.category');
+    Route::get('/song/{song_id}/favorite', 'SongController@favorite')->name('song.favorite');
+    Route::get('/song/{song_id}/unfavorite', 'SongController@unfavorite')->name('song.unfavorite');
 });

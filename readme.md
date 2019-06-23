@@ -4,11 +4,11 @@
 
 ###### **Adım 1**
 
-`git clone git@github.com:ismailcaakir/tk-challange.git tk-challange`
+`git clone git@github.com:ismailcaakir/tk-challenge.git tk-challenge`
 
 ###### **Adım 2**
 
-`cd tk-challange && docker-compose up --build -d`
+`cd tk-challenge && docker-compose up --build -d`
 
 ###### **Adım 3**
 
